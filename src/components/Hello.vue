@@ -26,9 +26,21 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
-    }
+    };
+  },
+  mounted () {
+    // let test = async function() {
+    //   let result = await new Promise(function(resolve, reject) {
+    //     setTimeout(function() {
+    //       reject(1);
+    //     }, 2000);
+    //   });
+       
+    //   console.log(result);
+    // };
+    // test();
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
