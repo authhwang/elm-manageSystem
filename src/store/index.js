@@ -1,27 +1,26 @@
-import axios from 'axios';
+import {getAdminInfo} from '../common/js/common.js';
 import Vuex from 'vuex';
 import Vue from 'vue';
 
 Vue.use(Vuex);
 
-let state = {
+const state = {
   adminInfo: {
     avatar: 'default.jpg'
   }
 };
 
-let mutations = {
+const mutations = {
   saveAdminInfo (state, userinfo) {
     state.adminInfo = userinfo;
   }
 };
 
-let actions = {
-  updateInfo ({commit}) {
-    axios({
-      method: 'get',
-      url: global.getAdminInfo
-    }).then(function(result) {
+const actions = {
+  updateAdminInfo ({commit}) {
+    getAdminInfo().then(function(result) {
+      console.log(result);
+      result = result.data;
       if (result.status === 1) {
         commit('saveAdminInfo', result.data);
       } else {
