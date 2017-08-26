@@ -57,7 +57,6 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           let form = this.loginForm;
-          console.log(form.name);
           login({user_name: form.name, password: form.password}).then((result) => {
             result = result.data;
             if (result.status === 1) {
@@ -65,7 +64,7 @@ export default {
                 message: '登陆成功', 
                 type: 'success'
               });
-              this.$route.push('manage');
+              this.$router.push('manage');
             } else {
               this.$message({
                 message: result.message, 
@@ -73,7 +72,6 @@ export default {
               });
             }
           }).catch((error) => {
-            console.log(error);
             this.$message({
               message: error.message, 
               type: 'error'
@@ -96,7 +94,7 @@ export default {
           message: '登陆成功', 
           type: 'success'
         });
-        this.$route.push('manage');
+        this.$router.push('manage');
       }
     }
   }

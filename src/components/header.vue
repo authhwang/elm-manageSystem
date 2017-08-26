@@ -6,7 +6,7 @@
     </el-breadcrumb>
     <el-dropdown menu-align='start'  @command="handleMenu">
       <span class="el-dropdown-link">
-        下拉菜单
+        <img :src="imgUrl + adminInfo.avatar" width="36px" height="36px">
       </span>
       <el-dropdown-menu slot="dropdown" >
         <el-dropdown-item command="homepage">首页</el-dropdown-item>
@@ -18,8 +18,24 @@
 
 <script>
 import {signout} from '@/common/js/common.js';
+import {mapState, mapActions} from 'vuex';
+import {imgUrl} from '@/config/config.js';
 export default {
+  data() {
+    return {
+      imgUrl
+    };
+  },
+  computed: {
+    ...mapState(['adminInfo'])
+  },
+  created () {
+    if (!this.adminInfo.id) {
+      this.updateAdminInfo();
+    }
+  },
   methods: {
+    ...mapActions(['updateAdminInfo']),
     handleMenu(command) {
       if (command === 'homepage') {
         this.$router.push('/manage');
