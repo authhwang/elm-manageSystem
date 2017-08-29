@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "echarts": "^3.7.0",
     "element-ui": "^1.4.2",
     "time-formater": "^1.0.1",
     "vue": "^2.3.3",

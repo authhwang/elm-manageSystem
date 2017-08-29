@@ -12,22 +12,25 @@
       </el-row>
       <el-row class="row" :gutter="20">
         <el-col :span="5" ><div class="total-data-header data-box"><span class="data head">总数据：</span></div></el-col>
-        <el-col :span="5" ><div class="data-box"><span class="data">{{allApiCount}}</span> API请求量</div></el-col>
+        <el-col :span="5" ><div class="data-box"><span class="data">{{allApi}}</span><span v-if="allApiCount> 10000" class="wan">万</span> API请求量</div></el-col>
         <el-col :span="4" ><div class="data-box"><span class="data">{{allUserCount}}</span> 注册用户</div></el-col>
         <el-col :span="4" ><div class="data-box"><span class="data">{{allOrderCount}}</span> 订单</div></el-col>
         <el-col :span="4" ><div class="data-box"><span class="data">{{allAdminCount}}</span> 管理员</div></el-col>
       </el-row>
     </div>
+    <tendency :sevenDay='sevenDay' :sevenDate='sevenDate'></tendency>
   </div>
 </template>
 
 <script>
 import header from '@/components/header';
+import tendency from '@/components/tendency';
 import {getTodayRegisterUserCount, getTodayOrderCount, getTodayRegisterAdminCount, getTodayApiCount, getAllRegisterUserCount, getAllOrderCount, getAllRegisterAdminCount, getAllApiCount} from '@/common/js/common.js';
 import dtime from 'time-formater';
 export default {
   components: {
-    'elm-header': header
+    'elm-header': header,
+    'tendency': tendency
   },
   data () {
     return {
@@ -39,10 +42,19 @@ export default {
       allOrderCount: null,
       allAdminCount: null,
       allApiCount: null,
+      sevenDay: [],
+      sevenDate: [[], [], [], []],
     };
+  },
+  computed: {
+    allApi() {
+      return this.allApiCount > 10000 ? (this.allApiCount / 10000).toFixed(2) : this.allApiCount;
+    }
   },
   mounted () {
     this.initData();
+    this.getSevenDay();
+    this.getSevenData();
   },
   methods: {
     initData () {
@@ -56,6 +68,30 @@ export default {
         this.allUserCount = result[5].data.count;
         this.allOrderCount = result[6].data.count;
         this.allAdminCount = result[7].data.count;
+      });
+    },
+    getSevenDay () {
+      for (let i = 6; i > -1; i--) {
+        this.sevenDay.push(dtime(new Date().getTime() - i * 86400000).format('YYYY-MM-DD'));
+      }
+    },
+    getSevenData() {
+      let apiArr = [[], [], [], []];
+      this.sevenDay.forEach((item) => {
+        apiArr[0].push(getTodayApiCount(item));
+        apiArr[1].push(getTodayRegisterUserCount(item));
+        apiArr[2].push(getTodayOrderCount(item));
+        apiArr[3].push(getTodayRegisterAdminCount(item));
+      });
+      
+      apiArr = [...apiArr[0], ...apiArr[1], ...apiArr[2], ...apiArr[3]];
+      Promise.all(apiArr).then((result) => {
+        console.log(result);
+        result.forEach((item, index) => {
+          if (item.data.status === 1) {
+            this.sevenDate[Math.floor(index / 7)].push(item.data.count);
+          }
+        });
       });
     }
   }
@@ -103,6 +139,10 @@ export default {
       .head {
         color: #fff;
         font-size: 24px;
+      }
+      .wan {
+        color: #333;
+        font-size: 16px;
       }
     }
   }
