@@ -1,4 +1,4 @@
-const imgUrl = 'http://images.cangdu.org/';
+const imgUrl = 'http://image.authhwang.org/';
 export {
   imgUrl
 };

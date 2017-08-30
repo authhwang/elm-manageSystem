@@ -1,6 +1,7 @@
 'use strict';
 
 const baseUrl = 'http://authhwang.org:8001/';
+const dataUrl = 'http://cangdu.org:8001/';
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 
@@ -55,7 +56,7 @@ export const getTodayApiCount = (today) => {
 
 export const getAllRegisterUserCount = () => {
   return axios({
-    url: baseUrl + 'v1/user/count',   //大神是users
+    url: dataUrl + 'v1/users/count',   //大神是users
     method: 'get'
   });
 };
@@ -78,5 +79,13 @@ export const getAllApiCount = () => {
   return axios({
     url: baseUrl + 'statis/api/count',
     method: 'get'
+  });
+};
+
+export const getUserList = (params) => {
+  return axios({
+    url: dataUrl + 'v1/users/list',
+    method: 'get',
+    params
   });
 };

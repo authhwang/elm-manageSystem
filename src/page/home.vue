@@ -86,7 +86,6 @@ export default {
       
       apiArr = [...apiArr[0], ...apiArr[1], ...apiArr[2], ...apiArr[3]];
       Promise.all(apiArr).then((result) => {
-        console.log(result);
         result.forEach((item, index) => {
           if (item.data.status === 1) {
             this.sevenDate[Math.floor(index / 7)].push(item.data.count);

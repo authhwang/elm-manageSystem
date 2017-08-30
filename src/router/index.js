@@ -2,8 +2,9 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 const login = r => require.ensure([], () => r(require('@/page/login')), 'login'); //按需加载组件
-const manage = r => require.ensure([], () => r(require('@/page/manage')), 'manage');
 const home = r => require.ensure([], () => r(require('@/page/home')), 'home');
+const manage = r => require.ensure([], () => r(require('@/page/manage')), 'manage');
+const userList = r => require.ensure([], () => r(require('@/page/userList')), 'userList');
 
 Vue.use(Router);
 
@@ -22,7 +23,12 @@ export default new Router({
         {
           path: '',
           component: home,
-          meta: ['呀咯', '测试一下']
+          meta: []
+        },
+        {
+          path: '/userList',
+          component: userList,
+          meta: ['数据管理', '用户列表']
         }
       ]
     }
