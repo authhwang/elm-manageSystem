@@ -13,10 +13,11 @@ export const getAdminInfo = () => {
 };
 
 export const login = data => {
-  return axios.post(
-    baseUrl + 'admin/login',
+  return axios({
+    url: baseUrl + 'admin/login',
+    method: 'post',
     data
-  );
+  });
 };
 
 export const signout = () => {
@@ -87,5 +88,64 @@ export const getUserList = (params) => {
     url: dataUrl + 'v1/users/list',
     method: 'get',
     params
+  });
+};
+
+export const getShopList = (params) => {
+  return axios({
+    url: dataUrl + 'shopping/restaurants',
+    method: 'get',
+    params
+  });
+};
+
+export const guessPlace = () => {
+  return axios({
+    url: baseUrl + 'v1/cities',
+    method: 'get',
+    params: {
+      type: 'guess'
+    }
+  });
+};
+
+export const getRestaurantCount = () => {
+  return axios({
+    url: dataUrl + 'shopping/restaurants/count',
+    method: 'get',
+  });
+};
+
+export const getAllCategory = () => {
+  return axios({
+    url: dataUrl + 'shopping/v2/restaurant/category',
+    method: 'get'
+  });
+};
+
+export const searchPlace = (params) => {
+  return axios({
+    url: baseUrl + 'v1/pois',
+    method: 'get',
+    params: {
+      city_id: params.city_id,
+      keyword: params.keyword,
+      type: 'search'
+    }
+  });
+};
+
+export const updateRestaurant = (data) => {
+  return axios({
+    url: dataUrl + 'shopping/updateshop',
+    method: 'post',
+    data
+  });
+};
+
+export const deleteRestaurant = (id) => {
+  return axios({
+    url: dataUrl + 'shopping/restaurant/' + id,
+    method: 'delete'
   });
 };
