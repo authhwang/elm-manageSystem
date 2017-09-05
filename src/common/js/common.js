@@ -2,6 +2,8 @@
 
 const baseUrl = 'http://authhwang.org:8001/';
 const dataUrl = 'http://cangdu.org:8001/';
+//const dataUrl = 'http://localhost:8001/';
+
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 
@@ -14,7 +16,7 @@ export const getAdminInfo = () => {
 
 export const login = data => {
   return axios({
-    url: baseUrl + 'admin/login',
+    url: dataUrl + 'admin/login',
     method: 'post',
     data
   });
@@ -149,3 +151,55 @@ export const deleteRestaurant = (id) => {
     method: 'delete'
   });
 };
+
+export const getFoodList = (params) => {
+  return axios({
+    url: dataUrl + 'shopping/v2/foods',
+    method: 'get',
+    params
+  });
+};
+
+export const getFoodCount = () => {
+  return axios({
+    url: dataUrl + 'shopping/v2/foods/count',
+    method: 'get'
+  });
+};
+
+export const getRestaurantDetail = (restaurantId) => {
+  return axios({
+    url: dataUrl + 'shopping/restaurant/' + restaurantId,
+    method: 'get'
+  });
+};
+
+export const getCategoryDetail = (categoryId) => {
+  return axios({
+    url: dataUrl + 'shopping/v2/menu/' + categoryId,
+    method: 'get'
+  });
+};
+
+export const getAllCategoryFromRestaurant = (restaurantId) => {
+  return axios({
+    url: dataUrl + 'shopping/getcategory/' + restaurantId,
+    method: 'get'
+  });
+};
+
+export const deleteFood = (foodId) => {
+  return axios({
+    url: dataUrl + 'shopping/v2/food/' + foodId,
+    method: 'delete'
+  });
+};
+
+export const updateFood = (data) => {
+  return axios({
+    url: dataUrl + 'shopping/v2/updatefood',
+    method: 'post',
+    data
+  });
+};
+

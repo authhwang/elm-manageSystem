@@ -213,6 +213,7 @@ export default {
       this.dialogFormVisible = true;
     },
     handleAddFood(index, row) {
+      //TODO 跳转添加食品
       console.log(index, row);
     },
     handleDelete(index, row) {
@@ -220,7 +221,8 @@ export default {
       deleteRestaurant(row.id).then((result) => {
         if (result.data.status === 1) {
           this.$message.success('删除商铺成功');
-          this.initData();
+          this.tableData.splice(index, 1);
+          this.total -= 1;
         } else {
           this.$message.error(result.data.message);
         }
