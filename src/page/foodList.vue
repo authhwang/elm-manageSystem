@@ -298,7 +298,7 @@ export default {
       this.offset = (val - 1) * this.limit;
       this.initData();
     },
-    handleExpand(row, expand) {
+    handleExpand(row, expand) {      //当已经展开时 然后点击编辑 会有bug bug:不能收回 解决方法写在git
       this.expandRow = [...new Set(this.expandRow)];
       const index = this.expandRow.indexOf(row.index);
 
