@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <elm-header></elm-header>
     <div id="orderList">
       <el-table 

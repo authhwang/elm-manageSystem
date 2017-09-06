@@ -73,7 +73,7 @@ export const getAllOrderCount = () => {
 
 export const getAllRegisterAdminCount = () => {
   return axios({
-    url: baseUrl + 'admin/count',
+    url: dataUrl + 'admin/count',
     method: 'get'
   });
 };
@@ -222,5 +222,13 @@ export const getUserInfo = (userId) => {
   return axios({
     url: dataUrl + 'v1/user/' + userId,
     method: 'get'
+  });
+};
+
+export const getAdminList = (params) => {
+  return axios({
+    url: dataUrl + 'admin/all',
+    method: 'get',
+    params
   });
 };

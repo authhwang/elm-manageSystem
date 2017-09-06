@@ -8,6 +8,7 @@ const userList = r => require.ensure([], () => r(require('@/page/userList')), 'u
 const shopList = r => require.ensure([], () => r(require('@/page/shopList')), 'shopList');
 const foodList = r => require.ensure([], () => r(require('@/page/foodList')), 'foodList');
 const orderList = r => require.ensure([], () => r(require('@/page/orderList')), 'orderList');
+const adminList = r => require.ensure([], () => r(require('@/page/adminList')), 'adminList');
 
 Vue.use(Router);
 
@@ -47,6 +48,11 @@ export default new Router({
           path: '/orderList',
           component: orderList,
           meta: ['数据管理', '订单列表']
+        },
+        {
+          path: '/adminList',
+          component: adminList,
+          meta: ['数据管理', '管理员列表']
         }
       ]
     }
