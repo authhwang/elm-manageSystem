@@ -66,7 +66,7 @@ export const getAllRegisterUserCount = () => {
 
 export const getAllOrderCount = () => {
   return axios({
-    url: baseUrl + 'bos/orders/count',
+    url: dataUrl + 'bos/orders/count',
     method: 'get'
   });
 };
@@ -203,3 +203,24 @@ export const updateFood = (data) => {
   });
 };
 
+export const getOrderList = (params) => {
+  return axios({
+    url: dataUrl + 'bos/orders',
+    method: 'get',
+    params
+  });
+};
+
+export const getOrderAddress = (addressId) => {
+  return axios({
+    url: dataUrl + 'v1/addresse/' + addressId,          //大神是addresse
+    method: 'get'
+  });
+};
+
+export const getUserInfo = (userId) => {
+  return axios({
+    url: dataUrl + 'v1/user/' + userId,
+    method: 'get'
+  });
+};

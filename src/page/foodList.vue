@@ -7,7 +7,7 @@
       highlight-current-row
       style="width: 100%"
       :row-key="row => row.index"
-      :expand-row-keys.sync="expandRow"
+      :expand-row-keys="expandRow"
       @expand="handleExpand">
         <el-table-column type="expand">
           <template scope="props">
