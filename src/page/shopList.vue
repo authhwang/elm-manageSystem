@@ -284,7 +284,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 #shopList {
   padding: 20px;
 
