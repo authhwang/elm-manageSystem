@@ -134,7 +134,11 @@ export default {
       currentShop: {},
       options: [],
       currentShopCategory: [],
-      address: {}
+      address: {
+        address: '',
+        latitude: '',
+        longitude: ''
+      }
     };
   },
   components: {

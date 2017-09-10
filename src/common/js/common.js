@@ -232,3 +232,11 @@ export const getAdminList = (params) => {
     params
   });
 };
+
+export const addRestaurant = (data) => {
+  return axios({
+    url: dataUrl + 'shopping/addshop',
+    method: 'post',
+    data
+  });
+};
