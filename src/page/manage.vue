@@ -15,7 +15,7 @@
             <el-submenu index="3">
               <template slot="title"><i class="el-icon-plus"></i>添加数据</template>
                 <el-menu-item index="addShop">添加商铺</el-menu-item>
-                <el-menu-item index="addGoods">添加食品</el-menu-item>
+                <el-menu-item index="addFood">添加食品</el-menu-item>
             </el-submenu>
             <el-submenu index="4">
               <template slot="title"><i class="el-icon-star-on"></i>图表</template>
