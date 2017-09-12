@@ -16,7 +16,7 @@ export const getAdminInfo = () => {
 
 export const login = data => {
   return axios({
-    url: dataUrl + 'admin/login',
+    url: baseUrl + 'admin/login',
     method: 'post',
     data
   });
@@ -59,21 +59,21 @@ export const getTodayApiCount = (today) => {
 
 export const getAllRegisterUserCount = () => {
   return axios({
-    url: dataUrl + 'v1/users/count',   //大神是users
+    url: baseUrl + 'v1/user/count',   //大神是users
     method: 'get'
   });
 };
 
 export const getAllOrderCount = () => {
   return axios({
-    url: dataUrl + 'bos/orders/count',
+    url: baseUrl + 'bos/orders/count',
     method: 'get'
   });
 };
 
 export const getAllRegisterAdminCount = () => {
   return axios({
-    url: dataUrl + 'admin/count',
+    url: baseUrl + 'admin/count',
     method: 'get'
   });
 };
@@ -87,7 +87,7 @@ export const getAllApiCount = () => {
 
 export const getUserList = (params) => {
   return axios({
-    url: dataUrl + 'v1/users/list',
+    url: baseUrl + 'v1/users/list',
     method: 'get',
     params
   });
@@ -95,7 +95,7 @@ export const getUserList = (params) => {
 
 export const getShopList = (params) => {
   return axios({
-    url: dataUrl + 'shopping/restaurants',
+    url: baseUrl + 'shopping/restaurants',
     method: 'get',
     params
   });
@@ -113,14 +113,14 @@ export const guessPlace = () => {
 
 export const getRestaurantCount = () => {
   return axios({
-    url: dataUrl + 'shopping/restaurants/count',
+    url: baseUrl + 'shopping/restaurants/count',
     method: 'get',
   });
 };
 
 export const getAllCategory = () => {
   return axios({
-    url: dataUrl + 'shopping/v2/restaurant/category',
+    url: baseUrl + 'shopping/v2/restaurants/category',      //大神是restaurant
     method: 'get'
   });
 };
@@ -139,7 +139,7 @@ export const searchPlace = (params) => {
 
 export const updateRestaurant = (data) => {
   return axios({
-    url: dataUrl + 'shopping/updateshop',
+    url: baseUrl + 'shopping/updateshop',
     method: 'post',
     data
   });
@@ -147,14 +147,14 @@ export const updateRestaurant = (data) => {
 
 export const deleteRestaurant = (id) => {
   return axios({
-    url: dataUrl + 'shopping/restaurant/' + id,
+    url: baseUrl + 'shopping/restaurant/' + id,
     method: 'delete'
   });
 };
 
 export const getFoodList = (params) => {
   return axios({
-    url: dataUrl + 'shopping/v2/foods',
+    url: baseUrl + 'shopping/v2/foods',
     method: 'get',
     params
   });
@@ -162,42 +162,42 @@ export const getFoodList = (params) => {
 
 export const getFoodCount = () => {
   return axios({
-    url: dataUrl + 'shopping/v2/foods/count',
+    url: baseUrl + 'shopping/v2/foods/count',
     method: 'get'
   });
 };
 
 export const getRestaurantDetail = (restaurantId) => {
   return axios({
-    url: dataUrl + 'shopping/restaurant/' + restaurantId,
+    url: baseUrl + 'shopping/restaurant/' + restaurantId,
     method: 'get'
   });
 };
 
 export const getCategoryDetail = (categoryId) => {
   return axios({
-    url: dataUrl + 'shopping/v2/menu/' + categoryId,
+    url: baseUrl + 'shopping/v2/menu/' + categoryId,
     method: 'get'
   });
 };
 
 export const getAllCategoryFromRestaurant = (restaurantId) => {
   return axios({
-    url: dataUrl + 'shopping/getcategory/' + restaurantId,
+    url: baseUrl + 'shopping/getcategory/' + restaurantId,
     method: 'get'
   });
 };
 
 export const deleteFood = (foodId) => {
   return axios({
-    url: dataUrl + 'shopping/v2/food/' + foodId,
+    url: baseUrl + 'shopping/v2/food/' + foodId,
     method: 'delete'
   });
 };
 
 export const updateFood = (data) => {
   return axios({
-    url: dataUrl + 'shopping/v2/updatefood',
+    url: baseUrl + 'shopping/v2/updatefood',
     method: 'post',
     data
   });
@@ -205,7 +205,7 @@ export const updateFood = (data) => {
 
 export const getOrderList = (params) => {
   return axios({
-    url: dataUrl + 'bos/orders',
+    url: baseUrl + 'bos/orders',
     method: 'get',
     params
   });
@@ -213,21 +213,21 @@ export const getOrderList = (params) => {
 
 export const getOrderAddress = (addressId) => {
   return axios({
-    url: dataUrl + 'v1/addresse/' + addressId,          //大神是addresse
+    url: baseUrl + 'v1/address/' + addressId,          //大神是addresse
     method: 'get'
   });
 };
 
 export const getUserInfo = (userId) => {
   return axios({
-    url: dataUrl + 'v1/user/' + userId,
+    url: baseUrl + 'v1/user/' + userId,
     method: 'get'
   });
 };
 
 export const getAdminList = (params) => {
   return axios({
-    url: dataUrl + 'admin/all',
+    url: baseUrl + 'admin/all',
     method: 'get',
     params
   });
@@ -235,7 +235,23 @@ export const getAdminList = (params) => {
 
 export const addRestaurant = (data) => {
   return axios({
-    url: dataUrl + 'shopping/addshop',
+    url: baseUrl + 'shopping/addshop',
+    method: 'post',
+    data
+  });
+};
+
+export const addCategory = (data) => {
+  return axios({
+    url: baseUrl + 'shopping/addcategory',
+    method: 'post',
+    data
+  });
+};
+
+export const addFood = (data) => {
+  return axios({
+    url: baseUrl + 'shopping/addfood',
     method: 'post',
     data
   });
