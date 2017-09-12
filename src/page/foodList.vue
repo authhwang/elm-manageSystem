@@ -210,6 +210,8 @@ export default {
   },
   created() {
     this.restaurant_id = this.$route.query.restaurant_id; //这里的值虽然为undefined可是在后台筛选的时候是等于获取所有
+  },
+  activated() {
     this.initData();
   },
   methods: {

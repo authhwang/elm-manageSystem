@@ -147,6 +147,9 @@ export default {
   created () {
     this.initData();
   },
+  activated() {
+    this.initData();
+  },
   methods: {
     initData () {
       guessPlace().then((result) => {
