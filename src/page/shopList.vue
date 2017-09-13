@@ -144,9 +144,6 @@ export default {
   components: {
     'elm-header': header
   },
-  created () {
-    this.initData();
-  },
   activated() {
     this.initData();
   },
