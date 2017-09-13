@@ -12,6 +12,8 @@ const adminList = r => require.ensure([], () => r(require('@/page/adminList')), 
 const addShop = r => require.ensure([], () => r(require('@/page/addShop')), 'addShop');
 const addFood = r => require.ensure([], () => r(require('@/page/addFood')), 'addFood');
 const visitor = r => require.ensure([], () => r(require('@/page/visitor')), 'visitor');
+const edit = r => require.ensure([], () => r(require('@/page/edit')), 'edit');
+const adminSet = r => require.ensure([], () => r(require('@/page/adminSet')), 'adminSet');
 
 Vue.use(Router);
 
@@ -71,6 +73,16 @@ export default new Router({
           path: '/visitor',
           component: visitor,
           meta: ['图表', '用户列表']
+        },
+        {
+          path: '/vueEdit',
+          component: edit,
+          meta: ['编辑', '文本编辑']
+        },
+        {
+          path: '/adminSet',
+          component: adminSet,
+          meta: ['设置', '管理员设置']
         }
       ]
     }
