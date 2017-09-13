@@ -256,3 +256,10 @@ export const addFood = (data) => {
     data
   });
 };
+
+export const getUserCityCount = () => {
+  return axios({
+    url: dataUrl + 'v1/user/city/count',
+    method: 'get'
+  });
+};
