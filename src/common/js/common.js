@@ -259,7 +259,7 @@ export const addFood = (data) => {
 
 export const getUserCityCount = () => {
   return axios({
-    url: dataUrl + 'v1/user/city/count',
+    url: baseUrl + 'v1/user/city/count',
     method: 'get'
   });
 };
