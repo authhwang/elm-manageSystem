@@ -227,6 +227,8 @@ export default {
           });
           this.categoryForm.categoryList = menuArr;
         }
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
     },
     handleShowAddCategory() {
@@ -245,6 +247,8 @@ export default {
         } else {
           this.$message.error(result.message);
         }
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
     },
     beforeAvatarUpload(file) {
@@ -307,6 +311,8 @@ export default {
             } else {
               this.$message.error(result.message);
             }
+          }).catch((error) => {
+            this.$message.info('网络错误');
           });
         } else {
           this.$notify.error({

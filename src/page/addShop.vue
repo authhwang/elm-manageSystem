@@ -203,6 +203,8 @@ export default {
     initData() {
       guessPlace().then((result) => {
         this.city = result.data;
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
 
       getAllCategory().then((result) => {
@@ -230,6 +232,8 @@ export default {
           dataArr.push(category);
         });
         this.options = dataArr;
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
     },
     querySearchAsync(queryString, cb) {
@@ -380,6 +384,8 @@ export default {
             } else {
               this.$message.error(data.message);
             }
+          }).catch((error) => {
+            this.$message.info('网络错误');
           });
         } else {
           this.$notify.error({

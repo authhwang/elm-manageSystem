@@ -54,6 +54,8 @@ export default {
               message: '退出失败'
             });
           }
+        }).catch((error) => {
+          this.$message.info('网络错误');
         });
       }
     }

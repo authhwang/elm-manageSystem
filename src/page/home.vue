@@ -68,6 +68,8 @@ export default {
         this.allUserCount = result[5].data.count;
         this.allOrderCount = result[6].data.count;
         this.allAdminCount = result[7].data.count;
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
     },
     getSevenDay () {
@@ -91,6 +93,8 @@ export default {
             this.sevenDate[Math.floor(index / 7)].push(item.data.count);
           }
         });
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
     }
   }

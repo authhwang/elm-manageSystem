@@ -221,6 +221,8 @@ export default {
         if (data.status === 1) {
           this.total = data.count;
         }
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
       this.getFoodList();
     },
@@ -243,6 +245,8 @@ export default {
           dataArr.push(food);
         });
         this.tableData = dataArr;
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
     },
     getFoodMoreDetail(row, type, callback) {
@@ -270,9 +274,13 @@ export default {
               });
               this.allMenu = menuArr;
             }
+          }).catch((error) => {
+            this.$message.info('网络错误');
           });
           callback();
         }
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
     },
     handleEdit(index, row) {
@@ -294,6 +302,8 @@ export default {
         } else {
           this.$message.error(data.message);
         }
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
     },
     handleCurrentChange(val) {
@@ -374,6 +384,8 @@ export default {
         } else {
           this.$message.error(data.message);
         }
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
     }
   }

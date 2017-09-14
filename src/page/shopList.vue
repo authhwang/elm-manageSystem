@@ -152,6 +152,8 @@ export default {
       guessPlace().then((result) => {
         this.city = result.data;
         this.getRestaurantList();
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
       getRestaurantCount().then((result) => {
         console.log(result);
@@ -159,6 +161,8 @@ export default {
         if (data.status === 1) {
           this.total = data.count;
         }
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
       getAllCategory().then((result) => {
         console.log(result.data);
@@ -186,6 +190,8 @@ export default {
           dataArr.push(category);
         });
         this.options = dataArr;
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
     },
     getRestaurantList() {
@@ -208,6 +214,8 @@ export default {
           shopList.push(data);
         });
         this.tableData = shopList;
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
     },
     handleEdit(index, row) {
@@ -217,7 +225,7 @@ export default {
       this.dialogFormVisible = true;
     },
     handleAddFood(index, row) {
-      //TODO 跳转添加食品
+      this.$router.push({path: '/addFood', query: {restaurant_id: row.id}});
       console.log(index, row);
     },
     handleDelete(index, row) {
@@ -230,6 +238,8 @@ export default {
         } else {
           this.$message.error(result.data.message);
         }
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
     },
     handleCurrentChange(value) {
@@ -281,6 +291,8 @@ export default {
         } else {
           this.$message.error(result.data.message);
         }
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
       this.dialogFormVisible = false;
     }

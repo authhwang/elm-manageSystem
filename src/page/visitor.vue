@@ -29,6 +29,8 @@ export default {
         if (result.status === 1) {
           this.userList = result.user_city;
         }
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
     }
   }

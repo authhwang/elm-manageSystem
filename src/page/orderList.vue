@@ -99,6 +99,8 @@ export default {
           dataArr.push(order);
         });
         this.tableData = dataArr;
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
     },
     handleCurrentChange(val) {
@@ -123,6 +125,8 @@ export default {
         this.$nextTick(() => {
           this.expandRow.push(row.index);
         });
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
     }
   }

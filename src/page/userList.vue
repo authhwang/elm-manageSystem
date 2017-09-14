@@ -89,6 +89,8 @@ export default {
           });
         });
         this.tableData = dataArr;
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
     },
     handleCurrentChange (val) {
@@ -101,6 +103,8 @@ export default {
         if (data.status === 1) {
           this.total = data.count;
         }
+      }).catch((error) => {
+        this.$message.info('网络错误');
       });
     }
   }
