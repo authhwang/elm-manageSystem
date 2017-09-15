@@ -1,30 +1,9 @@
 # elm-manage-system
 
-> A Vue.js project
+> 以Vue全家桶,element-ui,nginx开发的elm后台系统 自己后台版(数据少一点)[地址](http://authhwang.org/elmmanager) 大神后台版(数据多很多)[地址](http://authhwang.org/data-elmmanager)
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+总结: <br>
+&nbsp;&nbsp;&nbsp;之前有学过一点前端三巨头，不过由于别的原因就停止学了。这次再将它拾起，发现有更多的认识。首先非常感谢公司的前端同事给予我的帮助呀，不厌其烦的回答我一个又一个的问题。当时是边学边看着同事用vue写的官网源码。写完的时候成就感满满的呀，觉得自己都掌握了vue和前端的基本页面样式知识。后来再搞cangdu大神的elm后台系统才发现原来当时用vue的功能还是少呀,到现在写完之后才能真的说掌握80%的vue呀。虽然当时写完官网的时候感觉应该再去跟着同事搞搞web app版的项目。可是我不能将之前定下的计划不搞一直不务正事的呀😂不过我也看了flex布局感觉也是收获良多。只能等我将TODOList上的东西搞完再搞别的吧。<br>
+&nbsp;&nbsp;&nbsp;在写这个后台系统的时候也有发现了cangdu大神后台的系统一些不好的交互，自己做了些改善。在做这个项目时也可以回顾一下之前后台api的业务实现流程，我感觉全栈工作量虽然大些可是对于整个业务上的理解和协调上会更为方便些，也可以少去了对bug寻找时的麻烦。<br>
+&nbsp;&nbsp;&nbsp;在这个项目上还用了nginx在自己的服务器上做了路由分发的功能，让不同的路径对应位置不同的项目路径，也去看了一下了解一下关于负载均衡的东西（纯属好奇一下😂）<br>
+&nbsp;&nbsp;&nbsp;当这个项目的完成也就说明我这次以node.js express mongodb为后台 以vue全家桶 element-ui为前端的前后端分离的elm后台系统宣告完成！！！<br>
